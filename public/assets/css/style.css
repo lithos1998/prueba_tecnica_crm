@@ -1,0 +1,281 @@
+@font-face{
+    font-family: 'roboto';
+    src: local('roboto')
+}
+
+:root{
+    /* colors */
+    --main-white : #fcfcfc;
+    --main-blue : #4789a5;
+    --main-light-blue : #87b2c2;
+    --second-lb : #bed6e2;
+    --third-lb: #dfe8f1;
+    
+    /* fonts */
+    --roboto: 'roboto';
+}
+
+h1, h2, h3, h4{
+    font-family: var(--roboto);
+    font-weight: 300;
+}
+
+body{
+    margin: 0px !important;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+}
+
+/* index */
+.index{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.index-content{
+    width: 100%;
+    padding: 40px 120px;
+}
+
+.user-panel{
+    width: 100%;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.user-panel span{
+    font-size: 60px;
+    font-family: var(--roboto);
+    color: var(--main-blue);
+    margin-right: 30px;
+}
+
+.user-panel i{
+    font-size: 60px;
+    color: var(--main-blue);
+}
+
+/* login */
+.login-content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-div{
+    width: 30%;
+    height: fit-content;
+    background-color: var(--main-light-blue);
+    padding: 30px 50px;
+    border-radius: 20px;
+}
+
+.login-div a{
+    color: var(--main-white);
+    font-size: 18px;
+    text-shadow: 2px 3px 3px #0000005b;
+    font-family: var(--roboto);
+    text-align: center;
+}
+
+
+/* create user view */
+.create-user-content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-user-div{
+    width: 30%;
+    height: fit-content;
+    background-color: var(--main-light-blue);
+    padding: 30px 50px;
+    border-radius: 20px;
+}
+
+/* nav */
+nav{
+    background-color: var(--main-light-blue);
+    min-height: 100%;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 90px;
+    position: fixed;
+}
+
+.nav-logo{
+    font-size: 90px;
+    color: var(--main-white);
+}
+
+.nav-buttons{
+    display: flex;
+    flex-direction: column;
+    /* position: fixed;
+    top: 400px; */
+}
+
+.nav-buttons a{
+    font-size: 30px;
+    color: var(--main-white);
+    font-size: 50px;
+    font-family: var(--roboto);
+    font-weight: 300;
+    padding: 10px 0px;
+    transition: .3s all ease-in-out;
+}
+
+.nav-buttons a:hover{
+    color: var(--main-blue);
+}
+
+
+/* Table (component) */
+.table{
+    background-color: var(--main-light-blue);
+    border-radius: 20px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+}
+
+.table h2{
+    color: var(--main-white);
+    font-size: 40px ;
+    font-family: var(--roboto);
+}
+
+.item-list{
+    background-color: var(--second-lb);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+
+.item-list .item{
+    background-color: var(--third-lb);
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.item-list .item p{
+    width: 50%;
+    color: black;
+    font-size: 26px;
+    font-family: var(--roboto);
+    padding-left: 10px;
+}
+
+
+/* Form (component) */
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+form input{
+    height: 60px ;
+    padding-left: 20px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: unset;
+    box-shadow: 4px 4px 8px #0000005b;
+}
+
+form button{
+    height: 60px ;
+    padding-left: 20px;
+    font-size: 30px;
+    background-color: var(--main-blue);
+    border: none;
+    border-radius: 10px;
+    color: var(--main-white);
+    box-shadow: 2px 4px 8px #0000005b;
+    transition: .4s all ease-in-out;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+form button:hover{
+    background-color: var(--main-white);
+    color: var(--main-blue);
+    box-shadow: unset;
+}
+
+.form-title{
+    color: var(--main-white);
+    font-size: 70px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+.display-errors{
+    background-color: #ed0c0c86;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.display-errors span{
+    color: var(--main-white);
+    font-family: var(--roboto);
+    margin: 6px 0px;
+}
+
+
+
+/* footer */
+footer{
+    padding: 0px 40px;
+    background-color: var(--main-blue);
+    height: 100px;
+}
+
+.footer-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-white);
+    font-size: 30px;
+    font-family: var(--roboto);
+}
