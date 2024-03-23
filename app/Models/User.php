@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'remember_token'
     ];
 
     /**
@@ -32,4 +33,8 @@ class User extends Authenticatable
         // 'password',
         'remember_token',
     ];
+
+    public function clients(){
+        return $this->belongsToMany(Client::class);
+    }
 }

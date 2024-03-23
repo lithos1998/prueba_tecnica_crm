@@ -15,9 +15,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $data ;
+
     public function index()
     {
-        return view('users.index');
+        return view('users.index');   
     }
 
     /**
@@ -47,8 +49,7 @@ class UserController extends Controller
             'remember_token' => Str::random(10),
         ]);
         
-
-        return redirect('/login');
+        return redirect('/')->with('success', 'Usuario creado correctamente');
     }
 
     /**
