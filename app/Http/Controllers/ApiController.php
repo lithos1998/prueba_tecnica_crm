@@ -12,10 +12,15 @@ class ApiController extends Controller
     public function users(Request $request){
         $users = User::all();
 
-        return response()->json($users);
+        return response()->json([
+            'status' => 200, 
+            'response' => [
+                'users' => $users
+            ]
+        ]);
     }
 
-    public function clients(Request $request){    
+    public function clients(Request $request){  
         $clients = User::find(2)->clients()->get();
 
         return response()->json($clients);

@@ -17,6 +17,8 @@ Route::resource('users', UserController::class)->middleware('auth');
 Route::get('/users/create',[UserController::class, 'create']);
 Route::post('/users',[UserController::class, 'store']);
 
+Route::put('/users/{user}',[UserController::class, 'update']);
+
 // Client resources
 Route::resource('clients', ClientController::class)->middleware('auth');
 

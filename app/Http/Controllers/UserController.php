@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -59,8 +62,13 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
-    {
-        //
+    {   
+        // con esta logica cada usuario puede ver unicamente su informacion
+        if ($user->id == Auth::user()->id) {
+            return view('users.show', ['user'=>Auth::user()]);
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -71,7 +79,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', ['user'=>Auth::user()]);
     }
 
     /**
@@ -82,8 +90,23 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {
-        //
+    {   
+        $data = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255'            
+        ]);
+
+        if($request->password != null){
+           if(strlen($request->password) < 8 ){
+                return Redirect::back()->withErrors(['La contraseña debe contener minimo 8 caracteres']);
+           }
+        
+            $data['password'] = Hash::make($request->password);
+        }
+       
+        $user->update($data);
+
+        return redirect('users');
     }
 
     /**
@@ -94,6 +117,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect('/');
     }
 }

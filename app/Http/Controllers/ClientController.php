@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -14,7 +16,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        return view('clients.index');
     }
 
     /**
@@ -24,7 +26,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -33,9 +35,21 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $client = Client::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'age' => $data['age'],
+            'phone' => $data['phone'],
+            'status' => $data['status'],
+        ]);
+
+        $client->users()->attach(Auth::id());
+        
+        return redirect('clients')->with('success', 'El cliente se añadio correctamente');
     }
 
     /**
@@ -46,7 +60,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return view('clients.show', ['client'=>$client]);
     }
 
     /**
@@ -57,7 +71,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit', ['client'=>$client]);
     }
 
     /**
@@ -67,9 +81,13 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(StoreClientRequest $request, Client $client)
     {
-        //
+        $data = $request->validated();
+
+        $client->update($data);
+
+        return redirect('clients');
     }
 
     /**
@@ -80,6 +98,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect('clients');
     }
 }

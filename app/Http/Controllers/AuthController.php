@@ -28,7 +28,7 @@ class AuthController extends Controller
             // Validacion correcta
             request()->session()->regenerate();
             
-            return redirect('/clients')->with('welcome', 'Bienvenido '.Auth::user()->name);;
+            return redirect('/clients');
         }
         
         // Credenciales invalidas
