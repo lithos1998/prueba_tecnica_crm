@@ -12,12 +12,12 @@ class DeleteConfirmation extends Component
      * @return void
      */
     public $name;
-    public $url;
+    public $action;
 
-    public function __construct($name, $url)
+    public function __construct($name, $action)
     {
         $this->name = $name;
-        $this->url = $url;
+        $this->action = $action;
     }
 
     /**

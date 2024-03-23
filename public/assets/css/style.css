@@ -366,6 +366,19 @@ nav{
     font-family: var(--roboto);
 }
 
+.reload{
+    width: 100%;
+    color: var(--main-white);
+    font-size: 40px ;
+    font-family: var(--roboto);
+    text-shadow: 2px 3px 6px #0000005b;
+}
+
+.reload:hover{
+    color: var(--main-blue);
+    text-shadow: unset;
+}
+
 .table .add-client-button{
     font-family: var(--roboto);
     font-size: 25px;
@@ -385,31 +398,36 @@ nav{
 
 .list-table{
     background-color: var(--second-lb);
-    display: flex;
-    flex-direction: column;
     padding: 20px 20px;
     border-radius: 20px;
-}
-
-.list-table tbody{
-    display: flex;
-    flex-direction: column;
+    border-collapse: collapse;
 }
 
 
 .list-table tbody tr{
     background-color: var(--third-lb);
-    display: flex;
-    flex-direction: row;
+    width: 100%;
     margin-bottom: 25px;
 }
 
-.list-table tbody td{
-    width: 50%;
+.list-table tbody td,
+.list-table thead th
+{
+    width: 200px;
     color: black;
     font-size: 26px;
     font-family: var(--roboto);
-    padding-left: 10px;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.list-table tbody td a{
+    color: black;
+    margin-right: 40px;
+}
+
+.list-table tbody tr:nth-of-type(even) {
+    background-color: var(--main-white);
 }
 
 

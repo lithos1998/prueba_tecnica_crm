@@ -2,7 +2,9 @@
 
 
 @section('content')
-    <x-goback url="/clients" />
+    {{-- componente vovler --}}
+    <x-goback url="/clientes" />
 
+    {{-- componente tarjeta de cliente --}}
     <x-show-person :person="$client" />
 @endsection

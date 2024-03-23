@@ -14,12 +14,14 @@ class Table extends Component
     public $table;
     public $button;
     public $id;
+    public $titles;
 
-    public function __construct($table, $button, $id)
+    public function __construct($table, $button, $id, $titles)
     {
         $this->table = $table;
         $this->button = $button;
         $this->id = $id;
+        $this->titles = $titles;
     }
 
     /**

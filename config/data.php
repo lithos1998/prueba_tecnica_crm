@@ -21,4 +21,12 @@
             ['status', 'select', 'Estatus']
         ];
 
+        public static $clients_titles=[
+            'nombre', 'edad', 'email', 'phone', 'status', 'acciones'
+        ];
+
+        public static $users_titles=[
+            'nombre', 'email'
+        ];
+
     }

@@ -3,8 +3,8 @@
         <h1 class="nav-logo">CRM</h1>
 
         <div class="nav-buttons">
-            <a href="/clients">Clientes</a>
-            <a href="/users">Usuarios</a>
+            <a href="/clientes">Clientes</a>
+            <a href="/usuarios">Usuarios</a>
         </div>
     </div>
 </nav>

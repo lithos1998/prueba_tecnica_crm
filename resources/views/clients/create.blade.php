@@ -2,8 +2,8 @@
 
 
 @section('content')
-    {{-- go back --}}
-    <x-Goback url="/clients" />
+    {{-- Componente vovler --}}
+    <x-Goback url="/clientes" />
 
     <div class="create-user-content">
         <div class="create-user-div">

@@ -2,7 +2,8 @@
 
 
 @section('content')
-    <x-goback url="/clients" />
+    {{-- componente vovler --}}
+    <x-goback url="/clientes" />
 
     <div class="create-user-content">
         <div class="create-user-div">
@@ -17,10 +18,12 @@
                 </div>               
             @endif
 
-            {{-- Component Form --}}
+            {{-- Componente Form --}}
             <x-form class="create-client-form" action="/clients/{{ $client->id }}" button="Editar" :list="Data::$create_client"  :values="$client" />
 
-            <x-delete-confirmation :name="$client->name"  url="/clients/{{ $client->id }}" />
+            {{-- Componente para confirmar --}}
+            <x-delete-confirmation :name="$client->name"  :action="route('clients.destroy', $client->id)" />
+            
         </div>
     </div>
 @endsection

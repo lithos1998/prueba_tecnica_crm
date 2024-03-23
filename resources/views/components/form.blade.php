@@ -1,12 +1,16 @@
 <form class="{{ $class }}" action="{{ $action }}" method="POST">
     @if ($values)
+        {{-- update --}}
         @method('PUT')
+    @else
+        @method('POST')
     @endif
     
     @csrf
 
     @foreach ($list as $input)
-        @if ( $input[1] != 'select')
+        {{-- construccion del formulario --}}
+        @if ( $input[1] != 'select')            
             @if ($values)
                 <input value="{{ $input[0] != 'password' ? $values[$input[0]]: '';}}" name="{{ $input[0] }}" type="{{ $input[1] }}"  placeholder="{{ $input[2] }}">
             @else

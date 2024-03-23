@@ -2,6 +2,7 @@
 
 
 @section('content')
+    {{-- componente vovler --}}
     <x-goback url="/users/{{ Auth::user()->id }}" />
 
     <div class="create-user-content">
@@ -20,7 +21,9 @@
             {{-- Component Form --}}
             <x-form class="create-user-form" action="/users/{{ Auth::user()->id }}" button="Editar" :list="Data::$create_user"  :values="$user" />
 
-            <x-delete-confirmation :name="$user->name"  url="/users/{{ $user->id }}" />
+            {{-- Componente para confirmar --}}
+            <x-delete-confirmation :name="$user->name"  :action="route('users.destroy', $user->id)" />
+            
         </div>
     </div>
 @endsection
