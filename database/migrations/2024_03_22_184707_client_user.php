@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Client;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,14 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('client_user', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->integer('age');
-            $table->integer('phone');
-            $table->boolean('status')->default(true);
-            $table->timestamps();
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Client::class);
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        //
     }
 };

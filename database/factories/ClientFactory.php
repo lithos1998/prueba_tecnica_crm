@@ -24,8 +24,7 @@ class ClientFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'age' => rand(18,100),
             'phone' => rand(1100000000, 1199999999),
-            'status' => fake()->boolean(),
-            'remember_token' => Str::random(10),
+            'status' => fake()->boolean()
         ];
     }
 }
