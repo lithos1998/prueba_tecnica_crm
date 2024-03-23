@@ -19,7 +19,7 @@
             @endif
 
             {{-- Component Form --}}
-            <x-form class="create-user-form" action="/users" button="Registrarme" :list="Data::$create_user" />
+            <x-form class="create-user-form" action="/users" button="Registrarme" :list="Data::$create_user" values=""/>
         </div>
     </div>
 @endsection

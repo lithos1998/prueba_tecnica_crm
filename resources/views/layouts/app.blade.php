@@ -15,12 +15,17 @@
     <title>CRM</title>
 </head>
 <body>
+    {{-- @yield('script') --}}
+
     <section class="main">
         @yield('content')
     </section>
 
+    
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/dfa42ae890.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/script.js"></script>
+    @stack('scripts')
 </body>

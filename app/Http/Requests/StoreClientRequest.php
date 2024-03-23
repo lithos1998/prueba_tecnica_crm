@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class StoreUserRequest extends FormRequest
+class StoreClientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +25,13 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:users|max:255',
-            'password' => ['required',  Password::min(8)]
+            'email' => 'required|email|max:255',
+            'age' => 'required',
+            'phone' => 'required',
+            'status' => 'required'
         ];
     }
-    
+
     /**
      * Get the error messages for the defined validation rules.
      *
@@ -43,7 +44,8 @@ class StoreUserRequest extends FormRequest
             'email.required' => 'Campo email es obligatoio',
             'email.email' => 'El formato de email no es valido',
             'email.unique' => 'Este mail ya se encuentra registrado',
-            'password.required' => 'Campo contraseña es obligatoio',
+            'age.required' => 'Campo edad es obligatorio',
+            'phone.required' => 'Campo telefono es obligatorio'
         ];
     }
 }

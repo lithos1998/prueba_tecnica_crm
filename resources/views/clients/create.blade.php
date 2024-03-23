@@ -19,7 +19,7 @@
             @endif
 
             {{-- Component Form --}}
-            <x-form class="create-client-form" action="/clients" button="Añadir" :list="Data::$create_client" />
+            <x-form class="create-client-form" action="/clients" button="Añadir" :list="Data::$create_client" values=""/>
         </div>
     </div>
 @endsection

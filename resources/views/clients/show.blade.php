@@ -3,6 +3,6 @@
 
 @section('content')
     <x-goback url="/clients" />
-    
-    <x-card :data="$client" />
+
+    <x-show-person :person="$client" />
 @endsection

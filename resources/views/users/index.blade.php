@@ -6,11 +6,15 @@
         
         <div class="index-content">
             <div class="user-panel">
-                <span><a href="/logout">{{ Auth::user()->name; }}</a></span>
-                <i class="fa-regular fa-circle-user"></i>
+                <a href="/users/{{ Auth::user()->id }}">{{ Auth::user()->name; }} <i class="fa-regular fa-circle-user"></i></a>
             </div>
 
             <x-table table="Usuarios" :button="false" id="users"/>
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script src="assets/js/petition.js"></script>
+@endpush

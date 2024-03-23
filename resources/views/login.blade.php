@@ -33,7 +33,7 @@
             @endif
             
             {{-- Component Form --}}
-            <x-form class="login-form" action="/login" button="Login" :list="Data::$login_form" />
+            <x-form class="login-form" action="/login" button="Login" :list="Data::$login_form" values=""/>
             
             <a clas="" href="/users/create">¿No estas registrado?</a>
         </div>

@@ -15,13 +15,15 @@ class Form extends Component
     public $action;
     public $button;
     public $list;
+    public $values;
 
-    public function __construct($class, $action, $button, $list)
+    public function __construct($class, $action, $button, $list, $values)
     {
         $this->class = $class;
         $this->action = $action;
         $this->button = $button;
         $this->list = $list;
+        $this->values = $values;
     }
 
     /**
