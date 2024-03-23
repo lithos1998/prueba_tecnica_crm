@@ -2,6 +2,9 @@
 
 
 @section('content')
+    {{-- go back --}}
+    <x-Goback url="/" />
+
     <div class="create-user-content">
         <div class="create-user-div">
             <h2 class="form-title">Registrarse</h2>

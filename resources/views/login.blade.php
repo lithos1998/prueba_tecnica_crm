@@ -2,6 +2,10 @@
 
 
 @section('content')
+    @if (session('msg'))
+        <h1>{{ session('msg') }}</h1>
+    @endif
+    
     <div class="login-content">
         <div class="login-div">
             <h2 class="form-title">CRM</h2>
@@ -12,6 +16,19 @@
                     @foreach ( $errors->all() as $error)
                         <span>- {{ $error }}</span>
                     @endforeach 
+                </div>               
+            @endif
+            
+            @if (session('invalidate'))
+                <div class="display-errors">
+                    <span>- {{ session('invalidate') }}</span>
+                </div> 
+            @endif
+
+            {{-- success --}}
+            @if (session('success'))
+                <div class="display-success">
+                    <span>{{ session('success') }}</span>
                 </div>               
             @endif
             

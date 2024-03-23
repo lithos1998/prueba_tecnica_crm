@@ -4,22 +4,21 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Table extends Component
+class Alert extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $table;
-    public $button;
-    public $id;
 
-    public function __construct($table, $button, $id)
+    public $msg;
+    public $class;
+
+    public function __construct($msg, $class)
     {
-        $this->table = $table;
-        $this->button = $button;
-        $this->id = $id;
+        $this->msg = $msg;
+        $this->class = $class;
     }
 
     /**
@@ -29,6 +28,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.table');
+        return view('components.alert');
     }
 }

@@ -4,22 +4,18 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Table extends Component
+class Goback extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $table;
-    public $button;
-    public $id;
+    public $url;
 
-    public function __construct($table, $button, $id)
+    public function __construct($url)
     {
-        $this->table = $table;
-        $this->button = $button;
-        $this->id = $id;
+        $this->url = $url;
     }
 
     /**
@@ -29,6 +25,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.table');
+        return view('components.goback');
     }
 }

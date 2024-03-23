@@ -14,7 +14,8 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::resource('users', UserController::class)->middleware('auth');
 
 // Excepcion de middleware para poder registrar un nuevo usuario
-Route::get('users/create',[UserController::class, 'create']);
+Route::get('/users/create',[UserController::class, 'create']);
+Route::post('/users',[UserController::class, 'store']);
 
 // Client resources
 Route::resource('clients', ClientController::class)->middleware('auth');

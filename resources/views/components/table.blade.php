@@ -1,12 +1,13 @@
 <div class="table">
-    <h2>Usuarios</h2>
+    <h2>{{ $table }}</h2>
 
-    <div class="item-list">
-        @for ($i = 0; $i <= 15; $i++)    
-            <div class="item">
-                <p>carlos riveros</p>
-                <p>carlosriveros1998@gmail.com</p>
-            </div>
-        @endfor
-    </div>
+    @if ($button)    
+        <a class="add-client-button" href="/clients/create"><i class="fa-solid fa-plus"></i> Añadir Cliente</a>
+    @endif
+
+    <table class="list-table">
+        <tbody id="{{ $id }}-table">
+            {{-- Respuesta ajax --}}
+        </tbody>
+    </table>
 </div>

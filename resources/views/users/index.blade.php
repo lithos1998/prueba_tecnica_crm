@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (Auth::user())
-        
-    @else
-        <h1>no autorizado</h1>
-    @endif
-
     <div class="index">
         @include('components.nav')
         
@@ -16,7 +10,7 @@
                 <i class="fa-regular fa-circle-user"></i>
             </div>
 
-            <x-table />
+            <x-table table="Usuarios" :button="false" id="users"/>
         </div>
     </div>
 @endsection
