@@ -22,7 +22,14 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('users.index');   
+        $users = User::all();
+
+        return response()->json($users);  
+    }
+
+    public function showIndex()
+    {
+        return view('users.index');
     }
 
     /**
@@ -97,7 +104,9 @@ class UserController extends Controller
         ]);
 
         if($request->password != null){
+            // La contraseña solo se actualiza si el usuario completa ese campo
            if(strlen($request->password) < 8 ){
+                // Se chequea la validez de la contraseña
                 return Redirect::back()->withErrors(['La contraseña debe contener minimo 8 caracteres']);
            }
         
@@ -106,7 +115,7 @@ class UserController extends Controller
        
         $user->update($data);
 
-        return redirect('users');
+        return redirect('usuarios')->with('success', 'Tus datos se actualizaron correctamente');
     }
 
     /**
@@ -118,6 +127,13 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        
+        if ($user->clients()) {
+            // Elimina los clientes asociados a este usuario si los hubiese
+            $clients = $user->clients();
+            
+            $clients->delete();
+        }
 
         return redirect('/');
     }

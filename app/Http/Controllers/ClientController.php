@@ -14,7 +14,21 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
+    {
+        if (Auth::check()) {            
+            $user = $request->user();
+            
+            $clients = $user->clients()->get();
+        }else{
+            return response()->json(['error'=> 'Usuario no autenticado'], 401);
+        }
+    
+        return response()->json($clients);
+    }
+
+    public function showIndex()
     {
         return view('clients.index');
     }
@@ -49,7 +63,7 @@ class ClientController extends Controller
 
         $client->users()->attach(Auth::id());
         
-        return redirect('clients')->with('success', 'El cliente se añadio correctamente');
+        return redirect('clientes')->with('success', 'El cliente se añadio correctamente');
     }
 
     /**
@@ -87,7 +101,7 @@ class ClientController extends Controller
 
         $client->update($data);
 
-        return redirect('clients');
+        return redirect('clientes')->with('success', 'El cliente se edito correctamente');
     }
 
     /**
@@ -100,6 +114,9 @@ class ClientController extends Controller
     {
         $client->delete();
 
-        return redirect('clients');
+        return redirect('clientes')->with('success', 'El cliente se elimino correctamente');
     }
+
+    
+
 }
