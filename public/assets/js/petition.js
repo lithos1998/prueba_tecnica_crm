@@ -20,11 +20,7 @@ $(document).ready(function(){
             url: url,
             dataType:'json',
             success:function(response){
-                if (filter) {
-                    buildTableFilter(response, table);
-                }else{
-                    buildTable(response, table);
-                }
+                buildTable(response, table);
             },
             error:function(response) {
                 console.log('Error:', response)
