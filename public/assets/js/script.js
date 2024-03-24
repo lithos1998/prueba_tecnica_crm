@@ -11,5 +11,11 @@ $(document).ready(function(){
         $('.delete-confirmation').addClass('hide');
     });
 
+    if (window.location.pathname == '/clientes') {
+        $('.clients-nav').addClass('selected');
+    } else if(window.location.pathname == '/usuarios'){
+        $('.users-nav').addClass('selected');
+    }
+
 
 });

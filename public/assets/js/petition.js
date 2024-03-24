@@ -14,14 +14,17 @@ $(document).ready(function(){
     });
 
 
-    function makePetition(url, $table){
+    function makePetition(url, table, filter){
         $.ajax({
             method:'GET',
             url: url,
             dataType:'json',
             success:function(response){
-                
-                buildTable(response, $table);
+                if (filter) {
+                    buildTableFilter(response, table);
+                }else{
+                    buildTable(response, table);
+                }
             },
             error:function(response) {
                 console.log('Error:', response)
@@ -41,10 +44,14 @@ $(document).ready(function(){
                 // Rellena la tabla de clientes
                 row ='<tr>'
                 row += '<td>'+ data[i].name +'</td>';
-                row += '<td>'+ data[i].age +'</td>';
                 row += '<td>'+ data[i].email +'</td>';
+                row += '<td>'+ data[i].age +'</td>';
                 row += '<td>'+ data[i].phone +'</td>';
-                row += '<td>'+ data[i].status +'</td>';
+                if (data[i].status == 1) {
+                    row += '<td><i class="fa-solid fa-check"></i></td>';                    
+                } else {
+                    row += '<td><i class="fa-solid fa-xmark"></i></td>'; 
+                }
                 row += '<td><a href="/'+ id +'/'+ data[i].id +'"><i class="fa-regular fa-eye"></i></a><a href="/'+ id +'/'+ data[i].id +'/edit"><i class="fa-regular fa-pen-to-square"></i></a></td>';
                 row += '</tr>';
             }else{
@@ -52,10 +59,10 @@ $(document).ready(function(){
                 row ='<tr><td>'+ data[i].name +'</td><td>'+ data[i].email +'</td></tr>';
             }
             
-
             table.innerHTML += row;
         }
     }
+
 
     makePetition('http://localhost:8000/users', 'users');
 
