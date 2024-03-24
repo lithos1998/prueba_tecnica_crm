@@ -341,10 +341,17 @@ nav{
     font-weight: 300;
     padding: 10px 0px;
     transition: .3s all ease-in-out;
+    text-align: center;
 }
 
 .nav-buttons a:hover{
     color: var(--main-blue);
+}
+
+.selected{
+    background-color: var(--main-blue);
+    border-radius: 10px;
+    padding: 20px 40px;
 }
 
 
@@ -424,6 +431,10 @@ nav{
 .list-table tbody td a{
     color: black;
     margin-right: 40px;
+}
+
+.list-table tbody td a:hover{
+    color: var(--main-blue);
 }
 
 .list-table tbody tr:nth-of-type(even) {
@@ -524,4 +535,344 @@ footer{
     color: var(--main-white);
     font-size: 30px;
     font-family: var(--roboto);
+}
+
+
+/* media queries */
+@media screen and (max-width: 1800px){
+    .list-table tbody td, 
+    .list-table thead th{
+        font-size: 23px;
+    }
+
+    .table h2{
+        margin-top: 0px !important;
+    }
+
+    .list-table tbody td a{
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1650px){
+    .index-content{
+        padding: 40px 90px;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    .nav-buttons a{
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .nav-logo{
+        font-size: 65px;
+    }
+
+    .index-content{
+        padding: 40px 40px;
+    }
+
+    .table{
+        width: unset;
+    }
+
+    .nav-buttons a{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .login-div,
+    .create-user-div{
+        width: 45%;
+    }
+
+    .form-title{
+        font-size: 55px;
+    }
+
+    nav {
+        min-width: 300px !important;
+        max-width: 300px !important;
+    }
+
+    .list-table{
+        width: 100%;
+        overflow-x: scroll;
+        display: block;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        margin: 0 auto;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        min-width: 200px; 
+    }
+
+    .index-content{
+        width: 65% !important;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    nav {
+        min-width: 250px !important;
+        max-width: 250px !important;
+    }
+
+    .index-content{
+        width: 70% !important;
+    }
+
+    th, td {
+        min-width: 180px; 
+    }
+
+    .list-table tbody td, .list-table thead th{
+        font-size: 20px;
+    }
+
+    .index-content{
+        width: 65% !important;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .index-content{
+        width: 62% !important;
+    }
+
+    .table h2{
+        font-size: 30px;
+    }
+
+    .table .add-client-button{
+        font-size: 22px;
+        padding: 10px 0px;
+    }
+
+    .user-panel a{
+        font-size: 45px;
+    }
+}
+
+
+@media screen and (max-width: 900px){
+    .index-content{
+        width: 68% !important;
+        padding-right: 0px !important;
+    }
+
+    nav{
+        min-width: 200px !important;
+        max-width: 200px !important;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .index-content{
+        width: 66% !important;
+        padding-right: 0px !important;
+    }
+
+    .list-table tbody td, .list-table thead th{
+        font-size: 18px;
+    }
+
+    .confirmation-chart span{
+        font-size: 30px;
+    }
+
+    .index-content{
+        width: 60% !important;
+        padding-right: 0px !important;
+    }
+
+    .table h2{
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    nav{
+        max-width: none !important;
+        min-width: none !important;
+        flex-direction: row;
+        width: 100% !important;
+        min-height: 100px !important;
+    }
+
+    .nav-bar{
+        flex-direction: row;
+        padding: 0px;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        position: unset;
+    }
+
+    .nav-logo{
+        margin: 0px !important;
+    }
+
+    .nav-buttons{
+        flex-direction: row;
+    }
+
+    .nav-buttons a{
+        padding: 10px 10px;
+        margin: 0px 10px;
+    }
+
+    .index{
+        flex-direction: column;
+    }
+
+    .index-content{
+        width: 88% !important;
+        padding-right: 40px;
+    }
+    
+}
+
+@media screen and (max-width: 650px){
+    .go-back a i{
+        padding: 30px 55px;
+    }
+
+    .form-title{
+        font-size: 48px;
+    }
+    
+}
+
+@media screen and (max-width: 500px){
+    .login-div,
+    .create-user-div{
+        width: 65%;
+    }
+
+    .user-panel a{
+        font-size: 38px;
+    }
+
+    .nav-buttons a{
+        font-size: 22px;
+    }
+
+    .nav-logo{
+        font-size: 45px;
+    }
+    
+    .card h2 {
+        font-size: 45px;
+    }
+
+    .confirmation-chart{
+        padding: 40px 20px;
+        width: 80%;
+    }
+
+    .delete-btn, .cancel-btn{
+        font-size: 25px;
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .login-div,
+    .create-user-div{
+        padding: 30px 30px;
+    }
+
+    .form-title{
+        font-size: 42px;
+    }
+
+    .index-content{
+        width: 80% !important;
+        padding-right: 40px;
+    }
+
+    .user-panel a{
+        font-size: 30px;
+        margin: 0px !important;
+    }
+
+    .card h2{
+        font-size: 38px;
+    }
+
+    .card p,
+    .card .logout-btn, 
+    .card .edit-btn{
+        font-size: 26px;
+    }
+
+
+    .go-back a i{
+        padding-left: 20px;
+    }
+    
+    .user-panel{
+        margin-bottom: 30px;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 400px){
+
+    form input, 
+    form select,
+    form button{
+        height: 45px !important;
+        font-size: 22px;
+    }
+
+    form button{
+        margin-top: 35px;
+    }
+
+    .card{
+        padding: 20px 30px;
+        border-radius: 12px;
+    }
+
+    .card .logout-btn{
+        font-size: 22px;
+    }
+
+    .card span i {
+        font-size: 120px;
+    }
+
+    .card h2{
+        font-size: 26px;
+    }
+
+    .card p{
+        font-size: 19px;
+    }
+
+    .list-table tbody td, .list-table thead th {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 370px){
+    .nav-logo{
+        font-size: 35px;
+    }
+
+    .nav-buttons a{
+        font-size: 18px;
+    }
 }

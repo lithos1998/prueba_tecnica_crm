@@ -18,8 +18,8 @@
             @endif
         @else
             <select name="{{ $input[0] }}">
-                <option value="true" selected>activo</option>
-                <option calue="false" >inactivo</option>
+                <option value="1" selected>activo</option>
+                <option value="0" >inactivo</option>
             </select>
         @endif
 
