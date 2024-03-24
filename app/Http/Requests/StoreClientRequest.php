@@ -26,8 +26,8 @@ class StoreClientRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'age' => 'required',
-            'phone' => 'required',
+            'age' => 'required|numeric|digits:2|gte:10',
+            'phone' => 'required|numeric',
             'status' => 'required'
         ];
     }
@@ -45,7 +45,11 @@ class StoreClientRequest extends FormRequest
             'email.email' => 'El formato de email no es valido',
             'email.unique' => 'Este mail ya se encuentra registrado',
             'age.required' => 'Campo edad es obligatorio',
-            'phone.required' => 'Campo telefono es obligatorio'
+            'age.numeric' => 'La edad debe ser un numero',
+            'age.digits' => 'La edad no es valida',
+            'age.gte' => 'El cliente debe ser mayor de edad',
+            'phone.required' => 'Campo telefono es obligatorio',
+            'phone.numeric' => 'La edad debe ser un numero'
         ];
     }
 }

@@ -22,7 +22,7 @@
         ];
 
         public static $clients_titles=[
-            'nombre', 'edad', 'email', 'phone', 'status', 'acciones'
+            'nombre', 'email', 'edad', 'phone', 'status', 'acciones'
         ];
 
         public static $users_titles=[
