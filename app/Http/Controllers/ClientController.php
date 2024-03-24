@@ -9,12 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
+    // Devuelve los clientes del usuario logeado en formato JSON
     public function index(Request $request)
     {
         if (Auth::check()) {            
@@ -28,37 +23,32 @@ class ClientController extends Controller
         return response()->json($clients);
     }
 
+
+    // Muestra la vista principal con todos los clientes
     public function showIndex()
     {
         return view('clients.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    // Muestra el formulario de creacion de cliente
     public function create()
     {
         return view('clients.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Almacena un nuevo cliente en la base de datos
     public function store(StoreClientRequest $request)
     {
         $data = $request->validated();
-        
+
         $client = Client::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'age' => $data['age'],
             'phone' => $data['phone'],
-            'status' => $data['status'],
+            'status' => $data['status']
         ]);
 
         $client->users()->attach(Auth::id());
@@ -66,35 +56,22 @@ class ClientController extends Controller
         return redirect('clientes')->with('success', 'El cliente se añadio correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
+   
+    // Muestra el dato de un cliente en especifico
     public function show(Client $client)
     {
         return view('clients.show', ['client'=>$client]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Muestra formulario para editar un cliente
     public function edit(Client $client)
     {
         return view('clients.edit', ['client'=>$client]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Actualiza los datos de un cliente
     public function update(StoreClientRequest $request, Client $client)
     {
         $data = $request->validated();
@@ -104,12 +81,8 @@ class ClientController extends Controller
         return redirect('clientes')->with('success', 'El cliente se edito correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Se elimina el clientes
     public function destroy(Client $client)
     {
         $client->delete();

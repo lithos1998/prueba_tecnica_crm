@@ -17,8 +17,6 @@ class ClientFactory extends Factory
      */
     public function definition()
     {
-        // $age = rand(18,100);
-
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),

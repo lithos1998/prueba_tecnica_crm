@@ -21,9 +21,9 @@
             <x-table table="Mis clientes" :button="true" id="clients" :titles="Data::$clients_titles"/>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="assets/js/petition.js"></script>
+    @endpush
 @endsection
 
-
-@push('scripts')
-    <script src="assets/js/petition.js"></script>
-@endpush

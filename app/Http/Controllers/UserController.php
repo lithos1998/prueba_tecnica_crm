@@ -9,17 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rules\Password;
+
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public $data ;
-
+    // Devuelve los usuario del sistema en formato JSON
     public function index()
     {
         $users = User::all();
@@ -27,27 +21,22 @@ class UserController extends Controller
         return response()->json($users);  
     }
 
+
+    // Muestra vista principal con todos los usuarios
     public function showIndex()
     {
         return view('users.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Muestra formulario para crear un nuevo usuario
     public function create()
     {
        return view('users.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Almacena un nuevo usuario en la base de datos
     public function store(StoreUserRequest $request)
     {   
         $data = $request->validated();
@@ -62,15 +51,10 @@ class UserController extends Controller
         return redirect('/')->with('success', 'Usuario creado correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Muestra la informacion del usuario (solo usuario logeado)
     public function show(User $user)
     {   
-        // con esta logica cada usuario puede ver unicamente su informacion
         if ($user->id == Auth::user()->id) {
             return view('users.show', ['user'=>Auth::user()]);
         }else{
@@ -78,24 +62,15 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
+   
+    // Muestra formulario para editar al usuario
+    public function edit()
     {
         return view('users.edit', ['user'=>Auth::user()]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Actualiza los datos del usuario
     public function update(Request $request, User $user)
     {   
         $data = $request->validate([
@@ -118,12 +93,8 @@ class UserController extends Controller
         return redirect('usuarios')->with('success', 'Tus datos se actualizaron correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Se elimina al usuario 
     public function destroy(User $user)
     {
         $user->delete();

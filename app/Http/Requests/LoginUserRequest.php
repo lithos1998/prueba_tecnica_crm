@@ -17,11 +17,7 @@ class LoginUserRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
+    // Reglas de validacion
     public function rules()
     {
         return [
@@ -30,11 +26,8 @@ class LoginUserRequest extends FormRequest
         ];
     }
 
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array<string, string>
-     */
+    
+    // Mensajes de error
     public function messages(): array
     {
         return [

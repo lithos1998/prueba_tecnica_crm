@@ -47,7 +47,7 @@ $(document).ready(function(){
                 row += '<td>'+ data[i].email +'</td>';
                 row += '<td>'+ data[i].age +'</td>';
                 row += '<td>'+ data[i].phone +'</td>';
-                if (data[i].status == 1) {
+                if (data[i].status == true) {
                     row += '<td><i class="fa-solid fa-check"></i></td>';                    
                 } else {
                     row += '<td><i class="fa-solid fa-xmark"></i></td>'; 

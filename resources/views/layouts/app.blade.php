@@ -16,6 +16,7 @@
 </head>
 <body>
 
+    {{-- Contenido principal --}}
     <section class="main">
         @yield('content')
     </section>

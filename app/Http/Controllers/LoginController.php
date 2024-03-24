@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
-{
+{   
+    // Redirecciona al usuario al panel principal
     public function index()
 	{
 	    if (Auth::check()) {
@@ -16,10 +17,12 @@ class LoginController extends Controller
             return redirect('/clientes');
 	    }
         
-        // User no autenticado
+        // Si el user no autenticado
         return view('login.index');
 	}
 
+
+    // Funcion de logueo 
     public function login(LoginUserRequest $request)
 	{
 	    $credentials = $request->only('email', 'password');
@@ -36,6 +39,7 @@ class LoginController extends Controller
 	}
 
 
+    // Cerrar sesion
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();

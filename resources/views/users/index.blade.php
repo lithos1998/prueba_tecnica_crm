@@ -20,9 +20,10 @@
             <x-table table="Usuarios" :button="false" id="users" :titles="Data::$users_titles"/>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="assets/js/petition.js"></script>
+    @endpush
 @endsection
 
 
-@push('scripts')
-    <script src="assets/js/petition.js"></script>
-@endpush
